@@ -25,8 +25,8 @@ function clearCart() { }
 function showCart() {
 
   // TODO: Find the table body
-  // let tbody = document.getElementById('tbody');
-  let body = document.getElementsByTagName("tbody")[0];
+  let tbody = document.getElementById('tbody');
+  // let body = document.getElementsByTagName("tbody")[0];
 
   let btn = document.createElement('button');
   btn.setAttribute('onClick', 'removeItemFromCart()');
@@ -41,8 +41,32 @@ function showCart() {
     let td = document.createElement('td');
     tr.appendChild(td);
     // TODO: Add the TR to the TBODY and each of the TD's to the TR
+    if (j===0) {
+        
+      td.innerHTML='<button onClick="removeItemFromCart()">X</button>';
+    }
+    else if (j===1) {
+      td.textContent=cartItems[i].quantity;
+      
+    }
+    else if(j===2)
+    {
+      td.textContent=cartItems[i].Item;
 
+    }
+    
+    
+    
+      
+    
+    
+      console.log(cartItems);
   }
+    console.log(tbody);
+    
+  
+}
+  
 
   function removeItemFromCart(event) {
 
@@ -51,6 +75,6 @@ function showCart() {
     // TODO: Re-draw the cart table
 
   }
-}
+
 // This will initialize the page and draw the cart on screen
 renderCart();
